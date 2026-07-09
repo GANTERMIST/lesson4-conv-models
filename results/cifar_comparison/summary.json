@@ -1,0 +1,26 @@
+[
+  {
+    "name": "FC-CIFAR",
+    "params": 3840906,
+    "train_time_s": 197.57,
+    "infer_ms": 0.4657,
+    "best_test_acc": 0.5131,
+    "final_train_acc": 0.45178
+  },
+  {
+    "name": "CNN-ResNet-CIFAR",
+    "params": 483530,
+    "train_time_s": 209.96,
+    "infer_ms": 0.8572,
+    "best_test_acc": 0.8616,
+    "final_train_acc": 0.88938
+  },
+  {
+    "name": "CNN-ResNet-Dropout-CIFAR",
+    "params": 483530,
+    "train_time_s": 213.04,
+    "infer_ms": 0.9352,
+    "best_test_acc": 0.8528,
+    "final_train_acc": 0.86424
+  }
+]

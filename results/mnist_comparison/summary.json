@@ -1,0 +1,26 @@
+[
+  {
+    "name": "FC-MNIST",
+    "params": 569226,
+    "train_time_s": 138.7,
+    "infer_ms": 0.3871,
+    "best_test_acc": 0.9864,
+    "final_train_acc": 0.99095
+  },
+  {
+    "name": "SimpleCNN-MNIST",
+    "params": 861706,
+    "train_time_s": 140.56,
+    "infer_ms": 0.5183,
+    "best_test_acc": 0.9945,
+    "final_train_acc": 0.99955
+  },
+  {
+    "name": "ResNet-MNIST",
+    "params": 37802,
+    "train_time_s": 143.44,
+    "infer_ms": 0.7471,
+    "best_test_acc": 0.9931,
+    "final_train_acc": 0.9968833333333333
+  }
+]

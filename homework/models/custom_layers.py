@@ -211,3 +211,41 @@ class ResBlockVariantNet(nn.Module):
 
     def count_params(self):
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
+
+
+class AttentionResBlock(nn.Module):
+    """ResBlock с Channel Attention (SE-block)."""
+    def __init__(self, in_channels, out_channels, stride=1, reduction=16):
+        super().__init__()
+        self.conv1 = nn.Conv2d(in_channels, out_channels, 3, stride=stride, padding=1, bias=False)
+        self.bn1   = nn.BatchNorm2d(out_channels)
+        self.conv2 = nn.Conv2d(out_channels, out_channels, 3, padding=1, bias=False)
+        self.bn2   = nn.BatchNorm2d(out_channels)
+        self.relu  = nn.ReLU(inplace=True)
+
+        # Channel Attention (SE)
+        self.se = nn.Sequential(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Flatten(),
+            nn.Linear(out_channels, max(out_channels // reduction, 1)),
+            nn.ReLU(inplace=True),
+            nn.Linear(max(out_channels // reduction, 1), out_channels),
+            nn.Sigmoid()
+        )
+
+        # Shortcut
+        self.shortcut = nn.Sequential()
+        if stride != 1 or in_channels != out_channels:
+            self.shortcut = nn.Sequential(
+                nn.Conv2d(in_channels, out_channels, 1, stride=stride, bias=False),
+                nn.BatchNorm2d(out_channels)
+            )
+
+    def forward(self, x):
+        out = self.relu(self.bn1(self.conv1(x)))
+        out = self.bn2(self.conv2(out))
+        # apply SE attention
+        scale = self.se(out).view(out.size(0), out.size(1), 1, 1)
+        out = out * scale
+        out += self.shortcut(x)
+        return self.relu(out)

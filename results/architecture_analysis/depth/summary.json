@@ -1,0 +1,34 @@
+[
+  {
+    "name": "CNN-Shallow(2)",
+    "params": 20138,
+    "train_time_s": 193.69,
+    "infer_ms": 0.3945,
+    "best_test_acc": 0.5023,
+    "final_train_acc": 0.52956
+  },
+  {
+    "name": "CNN-Medium(4)",
+    "params": 391466,
+    "train_time_s": 203.27,
+    "infer_ms": 0.5013,
+    "best_test_acc": 0.7851,
+    "final_train_acc": 0.8053
+  },
+  {
+    "name": "CNN-Deep(6)",
+    "params": 1572138,
+    "train_time_s": 220.98,
+    "infer_ms": 0.7288,
+    "best_test_acc": 0.8775,
+    "final_train_acc": 0.91624
+  },
+  {
+    "name": "CNN-ResNet",
+    "params": 483530,
+    "train_time_s": 216.56,
+    "infer_ms": 0.9068,
+    "best_test_acc": 0.8599,
+    "final_train_acc": 0.86442
+  }
+]

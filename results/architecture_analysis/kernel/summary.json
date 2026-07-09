@@ -1,0 +1,34 @@
+[
+  {
+    "name": "CNN-3x3",
+    "params": 224842,
+    "train_time_s": 196.28,
+    "infer_ms": 0.44,
+    "best_test_acc": 0.7386,
+    "final_train_acc": 0.75192
+  },
+  {
+    "name": "CNN-5x5",
+    "params": 621130,
+    "train_time_s": 202.85,
+    "infer_ms": 0.6641,
+    "best_test_acc": 0.7845,
+    "final_train_acc": 0.79834
+  },
+  {
+    "name": "CNN-7x7",
+    "params": 1215562,
+    "train_time_s": 208.21,
+    "infer_ms": 0.5339,
+    "best_test_acc": 0.7935,
+    "final_train_acc": 0.80414
+  },
+  {
+    "name": "CNN-Mixed(1x1+3x3)",
+    "params": 98218,
+    "train_time_s": 199.43,
+    "infer_ms": 0.7394,
+    "best_test_acc": 0.643,
+    "final_train_acc": 0.65172
+  }
+]
